@@ -1,0 +1,55 @@
+{
+  "name": "carddemo-frontend",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Frontend Vue.js para el sistema bancario CardDemo",
+  "author": "CardDemo Team",
+  "scripts": {
+    "dev": "vite",
+    "build": "run-p type-check \"build-only {@}\" --",
+    "preview": "vite preview",
+    "test:unit": "vitest",
+    "test:coverage": "vitest --coverage",
+    "build-only": "vite build",
+    "type-check": "vue-tsc --build",
+    "format": "prettier --write --experimental-cli src/",
+    "lint": "vue-tsc --noEmit",
+    "clean": "rm -rf dist node_modules/.vite",
+    "analyze": "vite build --mode analyze"
+  },
+  "dependencies": {
+    "axios": "^1.13.4",
+    "chart.js": "^4.5.1",
+    "fast-check": "^4.5.3",
+    "pinia": "^3.0.4",
+    "vue": "^3.5.27",
+    "vue-chartjs": "^5.3.3",
+    "vue-i18n": "^11.2.8",
+    "vue-router": "^5.0.1"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.11",
+    "@tailwindcss/typography": "^0.5.19",
+    "@tsconfig/node24": "^24.0.4",
+    "@types/jsdom": "^27.0.0",
+    "@types/node": "^24.10.11",
+    "@vitejs/plugin-vue": "^6.0.3",
+    "@vue/test-utils": "^2.4.6",
+    "@vue/tsconfig": "^0.8.1",
+    "autoprefixer": "^10.4.24",
+    "jsdom": "^27.4.0",
+    "npm-run-all2": "^8.0.4",
+    "postcss": "^8.5.6",
+    "prettier": "3.8.1",
+    "tailwindcss": "^3.4.19",
+    "typescript": "~5.9.3",
+    "vite": "^7.3.1",
+    "vite-plugin-vue-devtools": "^8.0.5",
+    "vitest": "^4.0.18",
+    "vue-tsc": "^3.2.4"
+  },
+  "engines": {
+    "node": "^20.19.0 || >=22.12.0"
+  }
+}

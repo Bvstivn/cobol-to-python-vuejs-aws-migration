@@ -1,0 +1,27 @@
+# FastAPI y dependencias web
+fastapi>=0.100.0
+uvicorn[standard]>=0.23.0
+
+# Base de datos y ORM
+sqlalchemy>=2.0.0
+sqlmodel>=0.0.8
+
+# Validación y serialización
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+
+# Autenticación y seguridad
+python-jose[cryptography]>=3.3.0
+python-multipart>=0.0.5
+bcrypt>=4.0.0
+cryptography>=41.0.0
+slowapi>=0.1.9
+
+# Testing
+pytest>=7.0.0
+pytest-asyncio>=0.21.0
+hypothesis>=6.80.0
+httpx>=0.24.0
+
+# Utilidades
+python-dotenv>=1.0.0

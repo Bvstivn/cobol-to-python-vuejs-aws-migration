@@ -1,0 +1,17 @@
+# Dockerfile para AWS Lambda
+FROM public.ecr.aws/lambda/python:3.13
+
+# Copiar requirements
+COPY requirements.txt ${LAMBDA_TASK_ROOT}/
+
+# Instalar dependencias
+RUN pip install --no-cache-dir -r requirements.txt
+
+# Instalar Mangum para adaptar FastAPI a Lambda
+RUN pip install mangum psycopg2-binary
+
+# Copiar código de la aplicación
+COPY . ${LAMBDA_TASK_ROOT}/
+
+# Handler de Lambda
+CMD ["lambda_handler.handler"]
