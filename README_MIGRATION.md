@@ -397,15 +397,42 @@ Frontend will be available at: `http://localhost:3000`
 
 ## ☁️ AWS Deployment Guide
 
-This project includes a **complete step-by-step guide** for deploying to AWS using serverless architecture.
+This project includes **three deployment options** for AWS:
 
-### Quick Start
+### Option 1: Terraform (Recommended - Infrastructure as Code)
+
+**Fully automated deployment with Terraform:**
+
+```bash
+cd terraform
+
+# 1. Configure variables
+cp terraform.tfvars.example terraform.tfvars
+# Edit terraform.tfvars with your settings
+
+# 2. Deploy everything automatically
+chmod +x deploy.sh
+./deploy.sh
+```
+
+✅ **Advantages:**
+- Complete infrastructure as code
+- Reproducible deployments
+- Easy updates and rollbacks
+- Version controlled infrastructure
+- Automated deployment script
+
+📚 **Documentation:** See `terraform/README.md` for detailed instructions
+
+### Option 2: Manual Deployment (Step-by-Step)
+
+**Follow detailed manual instructions:**
 
 1. **Read the guides**:
    - `AWS_MIGRATION_SUMMARY.md` - Overview and architecture
    - `AWS_MIGRATION_GUIDE.md` - Detailed deployment steps
 
-2. **Prepare for deployment**:
+2. **Deploy manually**:
    ```bash
    # Backend
    cd carddemo-api
@@ -418,6 +445,16 @@ This project includes a **complete step-by-step guide** for deploying to AWS usi
    chmod +x deploy-s3.sh
    ./deploy-s3.sh
    ```
+
+### Option 3: AWS Amplify (Frontend Only)
+
+**Quick frontend deployment:**
+
+```bash
+cd carddemo-frontend
+amplify init
+amplify publish
+```
 
 ### AWS Architecture Components
 
@@ -440,6 +477,21 @@ For low-medium usage (~1M requests/month):
 
 ### Deployment Files Included
 
+#### Terraform (Infrastructure as Code)
+- ✅ `terraform/` - Complete Terraform configuration
+  - `main.tf` - Main configuration and providers
+  - `variables.tf` - Input variables
+  - `vpc.tf` - VPC and networking
+  - `rds.tf` - PostgreSQL database
+  - `lambda.tf` - Lambda function
+  - `api-gateway.tf` - API Gateway
+  - `s3-frontend.tf` - S3 bucket
+  - `cloudfront.tf` - CloudFront CDN
+  - `deploy.sh` - Automated deployment script
+  - `destroy.sh` - Safe destruction script
+  - `README.md` - Detailed Terraform documentation
+
+#### Manual Deployment Scripts
 - ✅ `Dockerfile.lambda` - Lambda container image
 - ✅ `lambda_handler.py` - FastAPI → Lambda adapter
 - ✅ `deploy-lambda.sh` - Automated backend deployment

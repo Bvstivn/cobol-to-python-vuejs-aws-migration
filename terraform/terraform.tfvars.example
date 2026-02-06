@@ -1,0 +1,30 @@
+# Example Terraform Variables
+# Copy this file to terraform.tfvars and fill in your values
+
+aws_region  = "us-east-1"
+environment = "dev"
+
+# Database Configuration
+db_username = "carddemo_admin"
+db_password = "CHANGE_ME_STRONG_PASSWORD"  # Use a strong password!
+db_name     = "carddemo"
+
+# Lambda Configuration
+lambda_memory_size = 512
+lambda_timeout     = 30
+
+# JWT Secret (generate a strong random string)
+jwt_secret_key = "CHANGE_ME_RANDOM_SECRET_KEY"
+
+# CORS Configuration
+allowed_origins = ["*"]  # In production, specify exact origins
+
+# CloudFront Configuration
+enable_cloudfront = true
+
+# Optional: Custom Domain
+# domain_name     = "api.yourdomain.com"
+# certificate_arn = "arn:aws:acm:us-east-1:123456789012:certificate/..."
+
+# Optional: WAF
+enable_waf = false
